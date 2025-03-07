@@ -60,6 +60,6 @@ app.post('/registro', (req, res) => {
 
 //Checa si esta correcto el puerto
 app.listen(3001, (req, res) => {
-    console.log("Si corre en el puerto 3000")
+    console.log("Si corre en el puerto 3001")
 })
 
