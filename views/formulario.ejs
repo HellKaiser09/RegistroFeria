@@ -1,20 +1,38 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Registro</title>
-</head>
-<body>
-  <h1>Registro para Sorteo</h1>
-  <form action="/registro" method="POST">
-    <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" name="nombre" required><br><br>
+<div class="form-body">
+  <script src="/js/validacion.js"></script>
+  <link rel="stylesheet" href="/css/styles.css"> 
+  <div class="row">
+      <div class="form-holder">
+          <div class="form-content">
+              <div class="form-items">
+                  <h3>Register Today</h3>
+                  <p>Fill in the data below.</p>
+                  <form class="requires-validation" novalidate>
 
-    <label for="correo">Correo Electrónico:</label>
-    <input type="email" id="correo" name="correo" required><br><br>
+                      <div class="col-md-12">
+                         <input class="form-control" type="text" name="name" placeholder="Full Name" required>
+                         <div class="valid-feedback">El nombre es valido!</div>
+                         <div class="invalid-feedback">El nombre no debe de estar vacio, favor de llenarlo!</div>
+                      </div>
 
-    <button type="submit">Registrar</button>
-  </form>
-</body>
-</html>
+                      <div class="col-md-12">
+                          <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
+                           <div class="valid-feedback">Email no es valido!</div>
+                           <div class="invalid-feedback">El email no debe de estar vacio!</div>
+                      </div>
+                      
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label">Confirmo que la informacion que estoy proporcionando es correcta.</label>
+                   <div class="invalid-feedback">Por favor confirma que la informacion proporcionanda es correcta.</div>
+                  </div>
+
+                      <div class="form-button mt-3">
+                          <button id="submit" type="submit" class="btn btn-primary">Registrarse</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

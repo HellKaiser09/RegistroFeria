@@ -1,7 +1,23 @@
+//Constantes que se estan usando 
 const express = require("express");
 const app = express();
+const path = require("path");
 const mongoose = require('mongoose');
 
+//Midleware 
+app.use(express.static("public"));
+
+//Configuraciones del ejs
+app.set("view engine", "ejs")
+app.set('views', './views');
+
+//Este es donde se ve el formulario 
+app.get('/', (req, res) => {
+    res.render('formulario');
+  });
+
+
+//Esto segun es la base de datos pero vamos a checarla aun xd a esto yo si no le se   
 mongoose.connect('mongodb://localhost:27017/feriaNegocio', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -11,13 +27,11 @@ mongoose.connect('mongodb://localhost:27017/feriaNegocio', {
     console.log('Error al conectar con la base de datos:', err);
   });
 
-app.set("view engine", "ejs")
-app.set('views', './views');
+
+
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    res.render('formulario');
-  });
+
 
   const AsistenteSchema = new mongoose.Schema({
     nombre: String,
@@ -44,6 +58,7 @@ app.post('/registro', (req, res) => {
       });
   });
 
+//Checa si esta correcto el puerto
 app.listen(3001, (req, res) => {
     console.log("Si corre en el puerto 3000")
 })
